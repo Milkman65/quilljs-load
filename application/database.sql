@@ -1,0 +1,24 @@
+SET @ORIG_SQL_REQUIRE_PRIMARY_KEY = @@SQL_REQUIRE_PRIMARY_KEY;
+SET SQL_REQUIRE_PRIMARY_KEY = 0;
+
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+
+CREATE DATABASE IF NOT EXISTS `quilljs-db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `quilljs-db`;
+
+
+CREATE TABLE `content` (
+  `content_id` int(11) NOT NULL,
+  `content_description` LONGTEXT NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `content`
+  ADD PRIMARY KEY (`content_id`);
+
+ALTER TABLE `content`
+  MODIFY `content_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
